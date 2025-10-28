@@ -59,12 +59,12 @@ jobs:
         run: dotnet test --configuration Release --logger "console;verbosity=detailed" | tee TestResults.log
 
 
-      # Step 8: Upload Test Results and Extent Reports
+      # Step 8: Upload Test Results and Allure-Reports
       - name: Upload Test Reports
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: Selenium_ExtentReports
+          name: Selenium_allureReports
           path: |
-            **/ExtentReports/**
+            **/allure-results/**
              TestResults.log
